@@ -49,21 +49,51 @@ Performance is reported across **pre-drift**, **mid-drift**, **post-drift**, and
 
 ---
 
-## Repository Structure
+## Reproducibility
 
-├── data/
-│   └── c_mapss_fd001/        # Processed dataset (scripts provided; raw data not redistributed)
-├── simulation/
-│   ├── inject_drift.py       # Drift injection utilities
-│   ├── inject_anomalies.py   # Anomaly injection logic
-│   └── streaming_loop.py     # Online evaluation loop
-├── models/
-│   ├── isolation_forest.py
-│   ├── one_class_svm.py
-│   └── adwin_wrapper.py
-├── evaluation/
-│   ├── metrics.py
-│   └── phase_analysis.py
-├── notebooks/
-│   └── reproduction.ipynb   # End-to-end reproduction notebook
-└── README.md
+This repository prioritizes transparent and reproducible evaluation, not leaderboard optimization.
+
+To reproduce the main results:
+
+1. Prepare the C-MAPSS FD001 dataset
+
+2. Run the streaming evaluation loop with drift and anomaly injection
+
+3. Evaluate detector performance across drift phases
+
+All assumptions, parameters, and design decisions are documented directly in the code and notebooks.
+
+## What This Is Not
+
+To avoid ambiguity, this project is not:
+
+- A novel anomaly detection algorithm
+
+- A state-of-the-art performance claim
+
+- A production-ready monitoring system
+
+It is an evaluation framework intended to surface failure modes that static benchmarks often obscure.
+
+## Why This Matters
+
+In safety-critical contexts, false confidence is itself a risk.
+
+Systems that appear robust under static validation may fail after deployment, where drift is the norm rather than the exception.
+Drift-aware evaluation enables risks to be identified before they manifest operationally.
+
+## Related Publication
+This repository supports the findings reported in:
+
+AlKhulaif, R. M. (2025). Benchmarking Drift-Resilient Anomaly Detection in Streaming Industrial Data: A Case Study on Turbofan Engine Failures. Journal of Undergraduate Research International, 1(2), pp.45–50. https://doi.org/10.64589/juri/214614
+
+# Contact For discussions related to:
+
+- Safety-critical ML evaluation
+
+- Deployment-facing robustness
+
+- Revolutionary, non-viral machine learning applications
+
+feel free to reach out:
+Linkedin @ralkhulaif
